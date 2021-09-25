@@ -336,7 +336,7 @@ class CenterExtractor(nn.Module):
         if zones is not None:
             masks = []
             for b, x in enumerate(input.split(1, dim=0)):
-                x = x.view(-1)
+                x = x.view(-1).detach()
                 _, idxs = scatter_max(x, zones[b].view(-1).long())
                 mask = torch.zeros(x.shape, device=x.device)
                 mask[idxs[idxs != x.shape[0]]] = 1

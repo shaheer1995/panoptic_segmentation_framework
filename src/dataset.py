@@ -92,6 +92,7 @@ class PASTIS_Dataset(tdata.Dataset):
 
         # Get metadata
         print("Reading patch metadata . . .")
+        print(folder)
         self.meta_patch = gpd.read_file(os.path.join(folder, "metadata.geojson"))
         self.meta_patch.index = self.meta_patch["ID_PATCH"].astype(int)
         self.meta_patch.sort_index(inplace=True)

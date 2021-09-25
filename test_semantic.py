@@ -113,14 +113,14 @@ def main(config):
         criterion = nn.CrossEntropyLoss(weight=weights)
 
         # Inference
-        print("Testing . . .")
-        model.load_state_dict(
-            torch.load(
-                os.path.join(
-                    config.res_dir, "Fold_{}".format(fold + 1), "model.pth.tar"
-                )
-            )["state_dict"]
-        )
+        #print("Testing . . .")
+        #model.load_state_dict(
+         #   torch.load(
+          #      os.path.join(
+           #         config.res_dir, "Fold_{}".format(fold + 1), "model.pth.tar"
+            #    )
+            #)["state_dict"]
+        #)
         model.eval()
         test_metrics, conf_mat = iterate(
             model,
